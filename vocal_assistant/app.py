@@ -3,7 +3,7 @@ from flask import (
 import io
 from .languages import ui_languages, voice_languages
 import tempfile
-from . import vocal_api
+from . import vocal_api, command
 import random
 
 
@@ -59,6 +59,21 @@ def listen():
             if not status:
                 message = random.choice(
                     voice_languages[language]['dont_understand'])
+            else:
+                success, metadata = command.execute(message, language)
+
+                print(message, metadata)
+
+                if not success:
+                    message = random.choice(voice_languages[language]['dont_understand'])
+                elif not metadata:
+                    message = voice_languages[language]['no_departure']
+                else:
+                    message = voice_languages[language]['summarize'].format(
+                        departures=', '.join(metadata[1]['departures']),
+                        name_agency=metadata[0],
+                        seat_available_count=int(metadata[1]['seat_available_count'])
+                    )
 
     session['message'] = message
 

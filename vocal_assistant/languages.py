@@ -40,7 +40,19 @@ voice_languages = {
             "Hi! How can I assist you in tackling your to-do list ?",
             "Welcome! What can I do to make your life more efficient ?",
             "Hello there! How may I be of service to you today ?",
-        ]
+        ],
+        "summarize":
+            "Dear customer, I am glad to inform you that there are standing"
+            " trips available for booking through our website."
+            " You can find all the details using the "
+            "following web link. However, please be informed"
+            " that the online sales for this trip will end soon. "
+            "One departure is scheduled tomorrow for {departures}."
+            "The trip is organized by {name_agency} with a average of"
+            " {seat_available_count} seats currently available."
+            " Don't miss this opportunity to secure your seat before"
+            " the online sales end!",
+        "no_departure": "Sorry, but no departure is available tomorrow."
     },
     "fr": {
         "dont_hear": [
@@ -80,6 +92,18 @@ voice_languages = {
             " Comment puis-je rendre votre journée plus agréable ?",
             "Bonjour et bienvenue dans notre assistance vocale."
             " Comment puis-je vous simplifier la vie aujourd'hui ?",
-        ]
+        ],
+        "summarize":
+            "Cher client, je suis heureux de vous informer qu'il y a des departs"
+            " de voyage disponibles à la réservation sur notre site Web."
+            " Vous pouvez trouver tous les détails en utilisant le lien de siteweb"
+            " suivant. Cependant, veuillez être informé que les ventes en ligne"
+            " pour ce voyage vont bientôt se terminer."
+            " Un départ est prévu pour demain à {departures}."
+            " Le voyage est organisé par {name_agency} avec une moyenne de"
+            " {seat_available_count} sièges actuellement disponibles."
+            " Ne manquez pas cette opportunité de sécuriser votre siège avant"
+            " la fin des ventes en ligne!",
+        "no_departure": "Je suis désolé, mais il n'a pas de voyage programmer pour demain",
     },
 }
