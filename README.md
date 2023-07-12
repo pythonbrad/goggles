@@ -50,7 +50,7 @@ python runserver.py -p 2006
 
 In using docker
 ```sh
-docker run -t lohce -p 2006
+docker run -p 2006:2006 -t lohce
 ```
 
 Fast testing
