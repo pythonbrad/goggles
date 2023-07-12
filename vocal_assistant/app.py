@@ -56,9 +56,9 @@ def listen():
             success, message = vocal_api.transcribe(
                 destination, language)
 
-            if not success:
+            if not success or not message.strip():
                 message = random.choice(
-                    voice_languages[language]['dont_understand'])
+                    voice_languages[language]['dont_hear'])
             else:
                 success, metadata = command.execute(message, language)
 

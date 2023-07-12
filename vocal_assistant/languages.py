@@ -71,7 +71,7 @@ voice_languages = {
             "Je suis désolé(e), je n'ai pas bien compris,"
             " pouvez-vous répéter ?",
             "Veuillez répéter, je n'ai pas tout saisi.",
-            "Pardon, je ne suis pas sûr(e) d'avoir bien compris,"
+            "Pardon, je ne suis pas sûr d'avoir bien compris,"
             " pouvez-vous répéter ?",
         ],
         "welcome": [
