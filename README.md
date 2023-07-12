@@ -1,3 +1,5 @@
+![a](https://github.com/pythonbrad/goggles/assets/45305909/779eccc9-57e5-4417-98b8-546b6dc87777)
+
 [LOHCE Careathon 2023](https://github.com/lohce/careathon2023)
 
 
