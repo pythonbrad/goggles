@@ -68,7 +68,7 @@ voice_languages = {
             "Je n'ai pas bien compris, pourriez-vous reformuler ?",
             "Je n'ai pas saisi clairement, pourriez-vous répéter ?",
             "Excusez-moi, je n'ai pas tout compris, pouvez-vous répéter ?",
-            "Je suis désolé(e), je n'ai pas bien compris,"
+            "Je suis désolé, je n'ai pas bien compris,"
             " pouvez-vous répéter ?",
             "Veuillez répéter, je n'ai pas tout saisi.",
             "Pardon, je ne suis pas sûr d'avoir bien compris,"

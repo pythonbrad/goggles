@@ -4,11 +4,13 @@ import requests
 import datetime
 
 
-TOWNS = ['yaoundé', 'douala', 'buea', 'bafoussam', 'bamenda']
+TOWNS = [r'yaound[ée]', 'douala', 'buea', 'bafoussam', 'bamenda']
 
 
 # Extract the metadata
 def translate(text) -> (str, str):
+
+    text = text.replace('\n', ' ').strip()
 
     trajets = [
         (departure, arrival)
@@ -18,12 +20,12 @@ def translate(text) -> (str, str):
 
     for departure, arrival in trajets:
         data = re.findall(
-            rf'(départ|departure)\W.*?\W(bus)\W.*?'
-            rf'\W({departure})\W.*?\W({arrival})\W',
+            rf'(départ|bus)\b.*?\b(bus|departure)\b.*?'
+            rf'\b({departure})\b.*?\b({arrival})\b',
             text, re.IGNORECASE
         )
         if data:
-            return departure, arrival
+            return data[0][2:]
 
 
 # Fetch data from the server
@@ -43,7 +45,7 @@ def query(departure, arrival, language):
     form["hash"] = hashlib.md5(b''.join(form.values())).hexdigest()
 
     r = requests.post("https://lohce.com/apiusers/gettravels", data=form)
-    data = r.json()['api_return']
+    data = r.json().get('api_return', [])
 
     return data
 
@@ -90,3 +92,4 @@ def execute(text, language) -> (bool, str):
     data = summarize(data)
 
     return (True, data)
+
