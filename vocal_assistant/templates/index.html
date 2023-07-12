@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>LOHCE {{title | safe}}</title>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/language_switch.css') }}">
+</head>
+
+<body>
+    <div class="audio-recording-container">
+        <h1 class="title">LOHCE {{title | safe}}</h1>
+        <i class="start-recording-button fa fa-microphone" aria-hidden="true"></i>
+        <div class="recording-contorl-buttons-container hide">
+            <i class="cancel-recording-button fa fa-times-circle-o" aria-hidden="true"></i>
+            <div class="recording-elapsed-time">
+                <i class="red-recording-dot fa fa-circle" aria-hidden="true"></i>
+                <p class="elapsed-time"></p>
+            </div>
+            <i class="stop-recording-button fa fa-stop-circle-o" aria-hidden="true"></i>
+        </div>
+        <div class="switch">
+            <input id="language-toggle-button" class="check-toggle check-toggle-round-flat" type="checkbox" {% if is_secondary_language %}checked{% endif %}>
+            <label for="language-toggle-button"></label>
+            <span class="on">EN</span>
+            <span class="off">FR</span>
+        </div>
+        <div class="text-indication-of-audio-playing-container">
+            <p class="text-indication-of-audio-playing hide"><span class="text-indication-of-audio-playing-status"></span><span>.</span><span>.</span><span>.</span></p>
+        </div>
+    </div>
+    <div class="overlay hide">
+        <div class="browser-not-supporting-audio-recording-box">
+            <p>To record audio, use browsers like Chrome and Firefox that support audio recording.</p>
+            <button type="button" class="close-browser-not-supported-box">Ok.</button>
+        </div>
+    </div>
+
+    <audio controls class="audio-element hide" autoplay>
+        <source src="/speak?id={{id}}" type="audio/mp3">
+    </audio>
+
+    <script type="text/javascript">
+        const textOfAudioPlayingStatus = ["{{analyzing | safe}}", "{{speaking | safe}}"];
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/audio-recording.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</body>
+
+</html>
