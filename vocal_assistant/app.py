@@ -53,16 +53,14 @@ def listen():
 
             upload.save(destination)
 
-            status, message = vocal_api.transcribe(
+            success, message = vocal_api.transcribe(
                 destination, language)
 
-            if not status:
+            if not success:
                 message = random.choice(
                     voice_languages[language]['dont_understand'])
             else:
                 success, metadata = command.execute(message, language)
-
-                print(message, metadata)
 
                 if not success:
                     message = random.choice(voice_languages[language]['dont_understand'])
@@ -92,9 +90,9 @@ def speak():
     else:
         message = random.choice(voice_languages[language]['welcome'])
 
-    status, audio = vocal_api.speech(message, language)
+    success, audio = vocal_api.speech(message, language)
 
-    if not status:
+    if not success:
         with open(f'vocal_assistant/data/error_{language}.mp3', 'rb') as f:
             audio = f.read()
 

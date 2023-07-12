@@ -45,10 +45,6 @@ def query(departure, arrival, language):
     r = requests.post("https://lohce.com/apiusers/gettravels", data=form)
     data = r.json()['api_return']
 
-    # with open('data.json') as f:
-    #     import json
-    #     data = json.loads(f.read())['api_return']
-
     return data
 
 

@@ -8,9 +8,9 @@ def transcribe(filename, language) -> (bool, str):
     ], stdout=subprocess.PIPE)
 
     out = process.communicate()[0].decode("ISO-8859-1")
-    status = process.returncode == 0
+    success = process.returncode == 0
 
-    return status, out
+    return success, out
 
 
 def speech(text, language) -> (bool, bytes):
@@ -19,6 +19,6 @@ def speech(text, language) -> (bool, bytes):
         stdout=subprocess.PIPE)
 
     out = process.communicate()[0]
-    status = process.returncode == 0
+    success = process.returncode == 0
 
-    return status, out
+    return success, out
