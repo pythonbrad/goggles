@@ -67,4 +67,4 @@ Translation
 ---
 
 The translation can be edited via the [vocal_assistant/languages.py](vocal_assistant/languages.py) file.
-Current just two languages are supported (French and English).
+Currently, just two languages are supported (French and English).
