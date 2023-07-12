@@ -34,12 +34,23 @@ pip3 install pipenv
 pipenv install
 ```
 
+In using Docker
+```sh
+docker build -t lohce
+```
 Execution
 ---
 
 Execute the command below, and enter [http://127.0.0.1:2006](http://127.0.0.1:2006) in you web browser.
+
+In using python
 ```sh
 python runserver.py -p 2006
+```
+
+In using docker
+```sh
+docker run -t lohce -p 2006
 ```
 
 Fast testing
